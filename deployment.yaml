@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locallens-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: locallens
+  template:
+    metadata:
+      labels:
+        app: locallens
+    spec:
+      containers:
+        - name: backend
+          image: aadityakulk/locallens-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
